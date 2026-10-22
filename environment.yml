@@ -1,0 +1,15 @@
+name: capstone-env
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.14.*
+  - pip
+  - numpy          # let the solver pick a 3.14-compatible version
+  - pandas
+  - jupyterlab
+  - ipykernel      # needed so VS Code notebooks can use this env
+  - pytest
+  - pip:
+      - -r requirements-pip.txt
+   

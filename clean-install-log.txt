@@ -1,0 +1,7 @@
+﻿=== Clean install check 10/22/2026 16:09:51 ===
+--- Python version ---
+Python 3.14.8
+--- pip check ---
+No broken requirements found.
+--- numpy / pandas ---
+2.5.4 3.0.6
