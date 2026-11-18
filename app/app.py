@@ -44,7 +44,7 @@ html, body, [data-testid="stAppViewContainer"] { font-family:'DM Sans', sans-ser
 [data-testid="stSidebar"] [role="radiogroup"] label:has(input:checked) { background:#214b3e; border:1px solid #428c70; }
 [data-testid="stSidebar"] [data-testid="stSidebarCollapseButton"] { color:#a9cabc; }
 
-.block-container { padding-top:1.55rem; padding-bottom:3rem; max-width:1420px; }
+.block-container { padding-top:6.5rem !important; padding-bottom:3rem; max-width:1420px; }
 h1,h2,h3 { font-family:'Outfit', sans-serif !important; letter-spacing:-.025em; }
 h1 { font-weight:750 !important; }
 [data-testid="stMetric"] { border:1px solid #29473f; background:linear-gradient(130deg,#142c28,#10231f); border-radius:15px; padding:1rem 1.2rem; }
@@ -83,40 +83,40 @@ footer {visibility:hidden;}
 [data-testid="stImage"] img { max-height: 235px; object-fit: contain; border-radius: 12px; }
 .thumb-caption { color:#c8dfd6; font-size:.77rem; line-height:1.3; overflow-wrap:anywhere; }
 .summary-tag { color:#72e7c2; font-size:.9rem; font-weight:700; }
-@media(max-width:700px){.block-container,[data-testid="stMainBlockContainer"]{padding:5rem .8rem 2rem!important;max-width:100%!important;}h1,h2,h3,.hero h1{white-space:normal!important;overflow-wrap:anywhere;line-height:1.3!important;}.hero h1{font-size:1.65rem!important;}[data-testid="stImage"] img{max-width:100%!important;height:auto!important;}[data-testid="stMetric"]{padding:.55rem .75rem;}}
 
-/* Responsive, readable layout for desktop, tablet and mobile. */
-html, body, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-  overflow-wrap: break-word; word-break: normal;
+
+/* Keep all main page content below the Streamlit toolbar. */
+[data-testid="stMainBlockContainer"],
+[data-testid="stMain"] .block-container,
+.stMain .block-container,
+.block-container {
+  padding-top: 6.5rem !important;
+  scroll-padding-top: 6.5rem;
 }
-[data-testid="stMain"] .block-container { width:100%; min-width:0; }
-[data-testid="stMain"] p, [data-testid="stMain"] li,
-[data-testid="stMain"] label, [data-testid="stMain"] small,
-[data-testid="stSidebar"] label, [data-testid="stSidebar"] p,
-.stCaption, [data-testid="stCaptionContainer"] {
-  white-space: normal !important; overflow-wrap:anywhere !important;
-  word-break:normal !important; line-height:1.5;
+/* Page titles must not slide under the fixed header. */
+.section-label {
+  line-height: 1.45;
+  padding-top: .45rem;
+  padding-bottom: .5rem;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
-[data-testid="stMetric"] { min-width:0 !important; overflow:visible !important; }
-[data-testid="stMetricValue"] { font-size:clamp(1.55rem, 4vw, 2.3rem) !important;
-  overflow-wrap:anywhere !important; white-space:normal !important; }
-[data-testid="stMetricLabel"] { overflow-wrap:anywhere !important; white-space:normal !important; }
-[data-testid="stHorizontalBlock"] { flex-wrap:wrap !important; }
-[data-testid="stHorizontalBlock"] > [data-testid="stColumn"] { min-width:min(100%, 260px) !important; flex:1 1 260px !important; }
-[data-testid="stImage"] { max-width:100%; }
-[data-testid="stImage"] img { width:auto !important; max-width:100% !important; height:auto !important; max-height:none !important; object-fit:contain; }
-[data-testid="stDataFrame"] { max-width:100%; overflow-x:auto; }
-[data-testid="stButton"] button { min-height:44px; max-width:100%; white-space:normal !important; overflow-wrap:anywhere !important; }
-[data-testid="stSidebar"] [role="radiogroup"] label { max-width:100%; white-space:normal !important; overflow-wrap:anywhere !important; }
-@media(max-width:700px) {
-  .block-container,[data-testid="stMainBlockContainer"] { padding:3.6rem .85rem 2.2rem !important; max-width:100% !important; }
-  .hero { padding:1.15rem 1rem !important; }
-  .hero h1 { font-size:clamp(1.65rem, 7vw, 2.15rem) !important; }
-  .hero p { font-size:.96rem !important; max-width:100% !important; }
-  .section-label { font-size:1.32rem !important; }
-  [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] { flex:1 1 100% !important; min-width:0 !important; }
-  [data-testid="stRadio"] [role="radiogroup"] { flex-wrap:wrap !important; }
-  .panel { padding:1rem !important; }
+.hero h1, .hero p, .panel-title, .panel-desc {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+@media (max-width: 700px) {
+  [data-testid="stMainBlockContainer"],
+  [data-testid="stMain"] .block-container,
+  .stMain .block-container,
+  .block-container {
+    padding-top: 7rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .hero { padding: 1.2rem !important; }
+  .hero h1 { font-size: 1.65rem !important; line-height: 1.3 !important; }
+  .section-label { font-size: 1.35rem !important; }
 }
 </style>
 """, unsafe_allow_html=True)
